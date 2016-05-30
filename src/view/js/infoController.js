@@ -5,8 +5,9 @@
 
 
 
-define(["app"], function (app) {
+define(['app'], function (app) {
     return app.controller("infoController", ["$scope", "dataservice", function ($scope, dataservice) {
+        console.log("###")
         $scope.baseinfo = dataservice.getbasedatas();
         $scope.workinfo = dataservice.getworkinfo();
         $scope.myself = dataservice.getmyself();

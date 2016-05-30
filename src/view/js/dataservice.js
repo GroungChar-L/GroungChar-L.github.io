@@ -4,7 +4,7 @@
 
 
 define(["app"], function (app) {
-    return app.controller.service("dataservice", function () {
+    return app.service("dataservice", function () {
         this.getbasedatas = function () {
             return this.basedatas;
         }

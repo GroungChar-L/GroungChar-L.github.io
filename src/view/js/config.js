@@ -5,24 +5,24 @@
 require.config({
     baseUrl:"../js",
     paths: {
-        "angular": ["angular.min"],
+        "angular": "angular.min",
         "angular-ui-router": ["angular-ui-router.min"],
-        "juqery": ["jquery.min"],
-        "bootstraop": ["bootstrap.min"],
+        "jquery": ["jquery.min"],
+        "bootstrap": ["bootstrap.min"],
         "app": ["app"]
     },
     shim: {
-        "angular": {deps: ["juqery"]},
-        "angular-ui-router": {deps: ["angular"]}
+        "angular-ui-router": {deps: ["angular"]},
+        "bootstrap":["jquery"]
     }
 
 });
 require([
-    "angular",
-    "angular-ui-router",
-    "jquery", "bootstrap",
-    "infoController",
-    "dataservice"
+    'angular-ui-router',
+    'bootstrap',
+    'jquery',
+    "../view/js/infoController",
+    "../view/js/dataservice"
 ], function () {
-    angular.bootstrap(document, "resumeApp");
+    angular.bootstrap(document, ["resumeApp"]);
 })
