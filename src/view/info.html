@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/angular.min.js"></script>
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/resume.css" rel="stylesheet">
+    <title>My resume</title>
+    <script src="js/dataservice.js"></script>
+    <script src="js/infoController.js"></script>
+</head>
+<body>
+<div ng-app="infoApp" ng-controller="infoController">
+    <div class="navbar navbar-inverse navbar-fixed-top ">
+        <marquee direction=left behavior=alternate scrollamount=10 scrolldelay=10 bgcolor=green
+                 height=40 hspace=10 vspace=10>
+            <div class="study-grids">
+                <h3 style="font-family: 'Glyphicons Halflings'">Welcome to my resume！！！
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;欢迎您来到我的简历主页！！！
+                </h3>
+            </div>
+
+        </marquee>
+    </div>
+    <div style="height: 70px"></div>
+    <div class="col-md-12 ">
+        <img class="img-rounded imgfirst" src="../img/headerbg.jpg">
+    </div>
+    <div class="col-md-12 " style="margin-top: 30px">
+        <div class="col-md-3 ">
+            <div class="col-md-8 ">
+                <img src="../img/p1.png">
+            </div>
+            <div class="col-md-1 "></div>
+            <div class="col-md-9 ">
+                <div style="height: 30px;"></div>
+                <ul id="main-nav" class="nav nav-tabs nav-stacked">
+                    <li class="active">
+                        <a href="#main" class="nav-header collapsed" data-toggle="collapse">
+                            <div style="text-align: center">显示</div>
+                        </a>
+                        <ul id="main" class="nav nav-list collapse secondmenu" style="height: 0px;">
+                            <li><a href="mainresume.html"><i></i>首页</a></li>
+                            <li><a href="#" ng-click="main()"><i></i>主页</a></li>
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <a href="#systemSetting" class="nav-header collapsed" data-toggle="collapse">
+                            <i></i>
+                            <div style="text-align: center">简历信息</div>
+                        </a>
+                        <ul id="systemSetting" class="nav nav-list collapse secondmenu" style="height: 0px;">
+                            <li><a href="#" ng-click="jiben()"><i></i>基本信息</a></li>
+                            <li><a href="#" ng-click="workjob()"><i></i>工作经验</a></li>
+                            <li><a href="#" ng-click="technologyview()"><i></i>知识结构</a></li>
+                            <li><a href="#" ng-click="selfeval()"><i></i>自我评价</a></li>
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <a href="#dd" class="nav-header collapsed" data-toggle="collapse">
+                            <div style="text-align: center">Github</div>
+                        </a>
+                        <ul id="dd" class="nav nav-list collapse secondmenu" style="height: 0px;">
+                            <li><a href="https://github.com/GroungChar-L"><i></i>github主页</a></li>
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <a href="#syss" class="nav-header collapsed" data-toggle="collapse">
+                            <i></i>
+                            <div style="text-align: center">打印简历</div>
+                        </a>
+                        <ul id="syss" class="nav nav-list collapse secondmenu" style="height: 0px;">
+                            <li><a href="#"><i></i></a></li>
+                            <li><a href="#"><i></i></a></li>
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <a href="#sys" class="nav-header collapsed" data-toggle="collapse">
+                            <div style="text-align: center">系统管理</div>
+                        </a>
+                        <ul id="sys" class="nav nav-list collapse secondmenu" style="height: 0px;">
+                            <li><a href="#"><i></i>注销</a></li>
+                            <li><a href="#"><i></i>退出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-8 " ng-show="baseinfo.face">
+            <div class="col-md-12 ">
+                <div class="panel panel-primary">
+                    <div class="panel-heading study-grid">
+                        <h3>Self Introduction</h3><h4>(个人简介)</h4>
+                    </div>
+                    <div class="panel-body study-grid">
+                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{baseinfo.info}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2  contact-right">
+                <div class="contact-details">
+                    <input type="submit" value="毕业证书" data-toggle="modal" data-target="#biye"/>
+                </div>
+            </div>
+            <div class="col-md-4  contact-right">
+                <div class="contact-details">
+                    <input type="submit" value="学位证书" data-toggle="modal" data-target="#xuewei"/>
+                </div>
+            </div>
+            <!--modal-->
+            <div class="modal fade" id="biye" tabindex="-1" role="dialog" aria-labelledby="biye">
+                <div class="modal-dialog" role="document" style="width: 75%">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">毕业证</h4>
+                        </div>
+                        <div class="modal-body col-md-12 ">
+                            <img style="width: 100%;height:500px" src="../img/by.jpg">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">关 闭</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="xuewei" tabindex="-1" role="dialog" aria-labelledby="biye">
+                <div class="modal-dialog" role="document" style="width: 75%">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="xuewei1">学位证书</h4>
+                        </div>
+                        <div class="modal-body col-md-12 ">
+                            <img style="width: 100%;height:500px" src="../img/xw.jpg">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">关 闭</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+            </div>
+        </div>
+        <div class="col-md-8" ng-show="baseinfo.jibenxinxi">
+            <div class="panel panel-primary">
+                <div class="panel-heading study-grid" style="background-color: aqua">
+                    <h3>Basic information</h3><h4>(基本信息)</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="col-md-12  he">
+                        <div class="col-md-2 ">
+                            <span>姓名:</span>
+                        </div>
+                        <div class="col-md-3 ">
+                            <span ng-bind="baseinfo.name"></span>
+                        </div>
+                        <div class="col-md-2 ">
+                            <span>年龄:</span>
+                        </div>
+                        <div class="col-md-3 ">
+                            <span ng-bind="baseinfo.age"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12  he">
+                        <div class="col-md-2 ">
+                            <span>性别:</span>
+                        </div>
+                        <div class="col-md-3 ">
+                            <span ng-bind="baseinfo.sex"></span>
+                        </div>
+                        <div class="col-md-2 ">
+                            <span>英语等级:</span>
+                        </div>
+                        <div class="col-md-3 ">
+                            <span ng-bind="baseinfo.english"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12  he">
+                        <div class="col-md-2 ">
+                            <span>学历:</span>
+                        </div>
+                        <div class="col-md-3 ">
+                            <span ng-bind="baseinfo.education"></span>
+                        </div>
+                        <div class="col-md-2 ">
+                            <span>专业:</span>
+                        </div>
+                        <div class="col-md-3 ">
+                            <span ng-bind="baseinfo.major"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12  he">
+                        <div class="col-md-2 ">
+                            <span>健康状况:</span>
+                        </div>
+                        <div class="col-md-3 ">
+                            <span ng-bind="baseinfo.health"></span>
+                        </div>
+                        <div class="col-md-2 ">
+                            <span>婚姻状况:</span>
+                        </div>
+                        <div class="col-md-3 ">
+                            <span ng-bind="baseinfo.married"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12  he">
+                        <div class="col-md-2 ">
+                            <span>籍贯:</span>
+                        </div>
+                        <div class="col-md-3 ">
+                            <span ng-bind="baseinfo.home"></span>
+                        </div>
+                        <div class="col-md-2 ">
+                            <span>现居住地:</span>
+                        </div>
+                        <div class="col-md-3 ">
+                            <span ng-bind="baseinfo.address"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12  he">
+                        <div class="col-md-2 ">
+                            <span>求职意向:</span>
+                        </div>
+                        <div class="col-md-3 ">
+                            <span ng-bind="baseinfo.intention"></span>
+                        </div>
+                        <div class="col-md-2 ">
+                            <span>工作年限:</span>
+                        </div>
+                        <div class="col-md-3 ">
+                            <span ng-bind="baseinfo.workyear"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12  he">
+                        <div class="col-md-2 ">
+                            <span>电话:</span>
+                        </div>
+                        <div class="col-md-3 ">
+                            <span ng-bind="baseinfo.tel"></span>
+                        </div>
+                        <div class="col-md-2 ">
+                            <span>Email:</span>
+                        </div>
+                        <div class="col-md-3 ">
+                            <span ng-bind="baseinfo.email"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="social-icons">
+                <h3>Education background</h3>
+                <div class="container">
+                    <div class="study-grid">
+                        <span>2008.09 - 2012.07  辽宁科技大学   电子与信息工程学院</span>
+                    </div>
+                    <div class="study-grid">
+                        <span>2015.01 - 2015.04  达内科技教育   java 开发</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 " ng-show="baseinfo.work">
+            <div class="col-md-12 ">
+                <div class="panel panel-primary">
+                    <div class="panel-heading study-grid" style="background-color: #c7254e">
+                        <h3>Work experience</h3><h4>(工作经验)</h4>
+                    </div>
+                    <div class="study-grid">
+                        <span style="background:url('../img/dbj.png')">我爱我家 CBS-2.0系统</span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-md-12  hee">
+                            <div class="col-md-2 ">
+                                <span>所用技术:</span>
+                            </div>
+                            <div class="col-md-10 0">
+                                <span class="aslp" ng-bind="workinfo.technologyscore"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12  hee">
+                            <div class="col-md-2 ">
+                                <span>开发工具:</span>
+                            </div>
+                            <div class="col-md-10 0">
+                                <span class="aslp" ng-bind="workinfo.toolscore"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12  hee">
+                            <div class="col-md-2 ">
+                                <span>责任描述:</span>
+                            </div>
+                            <div class="col-md-10 0">
+                                <span ng-bind="workinfo.responsibilityscore"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12  hee">
+                            <div class="col-md-2 ">
+                                <span>项目描述:</span>
+                            </div>
+                            <div class="col-md-10 0">
+                                <span class="aslp" ng-bind="workinfo.projectscore"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12  hee">
+                            <div class="col-md-2 ">
+                                <span>项目描述:</span>
+                            </div>
+                            <div class="col-md-10 0">
+                                <span class="aslp" ng-bind="workinfo.projectpreliminary"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="study-grid">
+                        <span style="background:url('../img/dbj.png')">保险公司地勘系统2.0</span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-md-12  hee">
+                            <div class="col-md-2 ">
+                                <span>所用技术:</span>
+                            </div>
+                            <div class="col-md-10 0">
+                                <span class="aslp" ng-bind="workinfo.technologylogical"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12  hee">
+                            <div class="col-md-2 ">
+                                <span>开发工具:</span>
+                            </div>
+                            <div class="col-md-10 0">
+                                <span class="aslp" ng-bind="workinfo.toollogical"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12  hee">
+                            <div class="col-md-2 ">
+                                <span>责任描述:</span>
+                            </div>
+                            <div class="col-md-10 0">
+                                <span ng-bind="workinfo.responsibilitylogocal"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12  hee">
+                            <div class="col-md-2 ">
+                                <span>项目描述:</span>
+                            </div>
+                            <div class="col-md-10 0">
+                                <span class="aslp" ng-bind="workinfo.projectlogical"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 " ng-show="baseinfo.technology">
+            <div class="col-md-12 ">
+                <div class="panel panel-primary">
+                    <div class="panel-heading study-grid" style="background-color: darkorange">
+                        <h3>technology</h3><h4>（熟悉技术）</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-md-12 ">
+                            <div class="col-md-3  imgborder">
+                                <img class=" col-md-12  ph" src="../img/timg/angular.png">
+                            </div>
+                            <div class="col-md-3  imgborder">
+                                <img class="col-md-12  ph" src="../img/timg/bootsrap.png">
+                            </div>
+                            <div class="col-md-3  imgborder">
+                                <img class="col-md-12  ph" src="../img/timg/html5.png">
+                            </div>
+                            <div class="col-md-3  imgborder">
+                                <img class="col-md-12  ph" src="../img/timg/css3.png">
+                            </div>
+                        </div>
+                        <div class="col-md-12 ">
+                            <div class="col-md-3  imgborder">
+                                <img class=" col-md-12  ph" src="../img/timg/java.png">
+                            </div>
+                            <div class="col-md-3  imgborder">
+                                <img class="col-md-12  ph" src="../img/timg/javascript.png">
+                            </div>
+                            <div class="col-md-3  imgborder">
+                                <img class="col-md-12  ph" src="../img/timg/jquery.png">
+                            </div>
+                            <div class="col-md-3  imgborder">
+                                <img class="col-md-12  ph" src="../img/timg/mysql.png">
+                            </div>
+                        </div>
+                        <div class="col-md-12  hee">
+                            <div class="col-md-10 0">
+                                <span class="aslp" ng-bind="workinfo.technologylogicalinfo"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 ">
+                <div class="study-grids">
+                    <div class="col-md-12   study-grid">
+                        <h3>skills..<span>!</span></h3>
+                        <div class="study2"></div>
+                        <div class="col-md-offset-1 ">
+                            <div class="col-md-3  contact-right">
+                                <h4>angular+jquery</h4>
+                            </div>
+                            <div class="col-md-3  contact-right">
+                                <h4>html 5</h4>
+                            </div>
+                            <div class="col-md-3  contact-right">
+                                <h4>css</h4>
+                            </div>
+                            <div class="col-md-3  contact-right">
+                                <h4>bootstrap</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-12 ">
+                            <div class="col-md-1 ">
+                                <h4>Web：</h4>
+                            </div>
+                            <div class="progress ">
+                                <div class="progress-bar progress-bar-success" role="progressbar"
+                                     aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                     style="width: 25%;">
+                                </div>
+                                <div class="progress-bar progress-bar-info" role="progressbar"
+                                     aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                     style="width: 25%;">
+                                    <span class="sr-only">30% 完成（信息）</span>
+                                </div>
+                                <div class="progress-bar progress-bar-warning" role="progressbar"
+                                     aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                     style="width: 25%;">
+                                    <span class="sr-only">20% 完成（警告）</span>
+                                </div>
+                                <div class="progress-bar progress-bar-danger" role="progressbar"
+                                     aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                     style="width: 25%;">
+                                    <span class="sr-only">20% 完成（警告）</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="study2"></div>
+                        <div class="col-md-offset-1 ">
+                            <div class="col-md-3  contact-right">
+                                <h4>SSH</h4>
+                            </div>
+                            <div class="col-md-3  contact-right">
+                                <h4>SpringMVC</h4>
+                            </div>
+                            <div class="col-md-3  contact-right">
+                                <h4>mybatis</h4>
+                            </div>
+                            <div class="col-md-3  contact-right">
+                                <h4>orhers</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-12 ">
+                            <div class="col-md-1 ">
+                                <h4>java：</h4>
+                            </div>
+                            <div class="progress ">
+                                <div class="progress-bar progress-bar-success" role="progressbar"
+                                     aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                     style="width: 25%;">
+
+                                </div>
+                                <div class="progress-bar progress-bar-info" role="progressbar"
+                                     aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                     style="width: 25%;">
+                                    <span class="sr-only">30% 完成（信息）</span>
+                                </div>
+                                <div class="progress-bar progress-bar-warning" role="progressbar"
+                                     aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                     style="width: 25%;">
+                                    <span class="sr-only">20% 完成（警告）</span>
+                                </div>
+                                <div class="progress-bar progress-bar-danger" role="progressbar"
+                                     aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                     style="width: 2%;">
+                                    <span class="sr-only">2% 完成（警告）</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="study2"></div>
+                        <div class="col-md-offset-1 ">
+                            <div class="col-md-3 ">
+                                <h4>orical</h4>
+                            </div>
+                            <div class="col-md-3 ">
+                                <h4>mysql</h4>
+                            </div>
+                            <div class="col-md-6 ">
+                                <h4>others</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-12 ">
+                            <div class="col-md-1 ">
+                                <h4>DB：</h4>
+                            </div>
+                            <div class="progress ">
+                                <div class="progress-bar progress-bar-success" role="progressbar"
+                                     aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                     style="width: 25%;">
+
+                                </div>
+                                <div class="progress-bar progress-bar-info" role="progressbar"
+                                     aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                     style="width: 25%;">
+                                    <span class="sr-only">30% 完成（信息）</span>
+                                </div>
+                                <div class="progress-bar progress-bar-warning" role="progressbar"
+                                     aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                     style="width: 20%;">
+                                    <span class="sr-only">20% 完成（警告）</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8" ng-show="baseinfo.selfevaluation">
+            <div class="col-md-12 ">
+                <div class="panel panel-primary">
+                    <div class="panel-heading study-grid" style="background-color: salmon">
+                        <h3>self evaluation</h3><h4>（自我评价）</h4>
+                    </div>
+                    <div class="panel-body study-grid ">
+                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{myself.self}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 ">
+                <img style="width: 100%" class="img-rounded" src="../img/img02.jpg">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 ">
+        <div class="social-icons">
+            <div class="container">
+                <div class="col-md-3  face">
+                    <p><i class="facebook"> </i> 733k</p>
+                    <h4>505740550</h4>
+                </div>
+                <div class="col-md-3  face">
+                    <p><i class="twitter"> </i> 620k</p>
+                    <h4>13654008330</h4>
+                </div>
+                <div class="col-md-3  face">
+                    <p><i class="google"> </i> 412k</p>
+                    <h4>13654008330@163.com</h4>
+                </div>
+                <div class="col-md-3  face">
+                    <p><i class="google"> </i> 412k</p>
+                    <h4>13654008330@163.com</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
