@@ -16,6 +16,6 @@ require.config({
     }
 
 })
-require(["app", "angular", "angular-ui-router", "jquery", "bootstrap", "infoController"], function () {
+require(["app", "angular", "angular-ui-router", "jquery", "bootstrap", "infoController","dataservice"], function () {
     angular.bootstrap(document, "resumeApp");
 })

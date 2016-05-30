@@ -2,17 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="../js/jquery.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/angular.min.js"></script>
-    <link href="../css/bootstrap.css" rel="stylesheet">
-    <link href="../css/resume.css" rel="stylesheet">
+    <link href="../css/resume.css" rel="stylesheet" type="text/css" media="all">
+    <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <script data-main="infoController.js" src="../js/require.js"></script>
     <title>My resume</title>
-    <script src="js/dataservice.js"></script>
-    <script src="js/infoController.js"></script>
 </head>
 <body>
-<div ng-app="infoApp" ng-controller="infoController">
+<div ng-controller="infoController">
     <div class="navbar navbar-inverse navbar-fixed-top ">
         <marquee direction=left behavior=alternate scrollamount=10 scrolldelay=10 bgcolor=green
                  height=40 hspace=10 vspace=10>
