@@ -141,6 +141,10 @@ input[type="button"] {
 .header-section-face{
     width: 30%;
 }
+.header-section-info{
+    width: 100%;
+}
+
 
 .header-section img {
     margin-top: 7em;
@@ -350,7 +354,9 @@ i.beh {
 .contact-right {
     text-align: right;
 }
-
+.contact-center{
+    text-align: center;
+}
 .contact-details input[type="submit"] {
     background: #393b3a;
     padding: 1em 2em;
