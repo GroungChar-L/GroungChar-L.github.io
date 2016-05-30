@@ -18,12 +18,11 @@ require.config({
 
 });
 require([
-    "../../js/app",
     "angular",
     "angular-ui-router",
     "jquery", "bootstrap",
-    "../view/js/infoController",
-    "../view/js/dataservice"
+    "infoController",
+    "dataservice"
 ], function () {
     angular.bootstrap(document, "resumeApp");
 })
