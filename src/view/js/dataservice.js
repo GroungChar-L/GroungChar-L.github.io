@@ -5,6 +5,7 @@
 
 define(["app"], function (app) {
     return app.service("dataservice", function () {
+
         this.getbasedatas = function () {
             return this.basedatas;
         }
