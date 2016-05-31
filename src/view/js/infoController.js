@@ -7,24 +7,26 @@
 
 define(['app'], function (app) {
     return app.controller("infoController", ["$scope", "dataservice", function ($scope, dataservice) {
-        var miao = document.getElementById("miao");
-        var fen = document.getElementById("fen");
-        var shi = document.getElementById("shi");
-        var clock = setInterval(function () {
-            var nowDate = new Date();//每次读取当前时间
-            var hour = nowDate.getHours();
-            var minute = nowDate.getMinutes();
-            var second = nowDate.getSeconds();
-
-            var circleHour = hour % 12 * 30;
-            shi.style.transform = "rotate(" + circleHour + "deg)";//读取到的时间为24小时制，转换为12小时
-            fen.style.transform = "rotate(" + minute * 6 + "deg)";
-            miao.style.transform = "rotate(" + second * 6 + "deg)";
-        }, 1000);
+        console.log("Enter the info");
+        /**
+         *      表盘时间
+         */
+        dataservice.gettimes();
+        /**
+         *     基础信息
+         */
         $scope.baseinfo = dataservice.getbasedatas();
+        /**
+         * 工作信息
+         */
         $scope.workinfo = dataservice.getworkinfo();
+        /**
+         * 自我介绍
+         */
         $scope.myself = dataservice.getmyself();
-
+        /**
+         * 页面控制
+         */
         $scope.main = function () {
             $scope.baseinfo.jibenxinxi = false;
             $scope.baseinfo.face = true;
@@ -46,25 +48,27 @@ define(['app'], function (app) {
             $scope.baseinfo.technology = false;
             $scope.baseinfo.selfevaluation = false;
         }
-        $scope.technologyview = function(){
+        $scope.technologyview = function () {
             $scope.baseinfo.jibenxinxi = false;
             $scope.baseinfo.face = false;
             $scope.baseinfo.work = false;
             $scope.baseinfo.technology = true;
             $scope.baseinfo.selfevaluation = false;
         }
-        $scope.selfeval = function(){
+        $scope.selfeval = function () {
             $scope.baseinfo.jibenxinxi = false;
             $scope.baseinfo.face = false;
             $scope.baseinfo.work = false;
             $scope.baseinfo.technology = false;
             $scope.baseinfo.selfevaluation = true;
         }
-
+        /**
+         * modal
+         */
         $scope.showbiye = function () {
             $('#saveModal').modal('show');
         }
-        console.log("Enter the info");
+
     }])
 })
 

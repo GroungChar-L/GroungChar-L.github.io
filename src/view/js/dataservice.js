@@ -76,6 +76,19 @@ define(["app"], function (app) {
             " 我有较强的科学研究和动手能力，2年的自动化PLC编程，调试工作经验，1年的java开发工作经验，自始至终都很爱好编程。" +
             "曾经从事的工作，让我懂得了团队合作的重要性，以及培养了自己与人沟通的能力。"
         }
+
+        this.gettimes = function(){
+             setInterval(function () {
+                var nowDate = new Date();//每次读取当前时间
+                var hour = nowDate.getHours();
+                var minute = nowDate.getMinutes();
+                var second = nowDate.getSeconds();
+                var circleHour = hour % 12 * 30+minute/60*30;
+                document.getElementById("shi").style.transform = "rotate(" + circleHour +"deg)";
+                document.getElementById("fen").style.transform = "rotate(" + minute * 6 + "deg)";
+                document.getElementById("miao").style.transform = "rotate(" + second * 6 + "deg)";
+            }, 1000);
+        }
     })
 })
 
