@@ -21,16 +21,6 @@ define(['app'], function (app) {
             fen.style.transform = "rotate(" + minute * 6 + "deg)";
             miao.style.transform = "rotate(" + second * 6 + "deg)";
         }, 1000);
-
-
-
-
-
-
-
-
-
-        console.log("###")
         $scope.baseinfo = dataservice.getbasedatas();
         $scope.workinfo = dataservice.getworkinfo();
         $scope.myself = dataservice.getmyself();
